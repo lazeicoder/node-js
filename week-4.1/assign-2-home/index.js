@@ -27,7 +27,7 @@ program
         const todo = await readTodos();
         const nextId = todo.length > 0? todo[todo.length - 1].id + 1: 1;
         const timeAdded = new Date().toLocaleString();
-        todo.push({id: nextId, task, timeAdded });
+        todo.push({id: nextId, task, timeAdded, done: false });
         await writeTodo(todo);
         console.log(`New todo has been added: ${task}`);
     });
@@ -41,9 +41,25 @@ program.command('list')
         }else {
             console.log(`Your Todos:`);
             todo.forEach( (doTodo) => {
-                console.log(`${doTodo.id} - ${doTodo.task}`);
+                console.log(`${doTodo.id} - ${doTodo.task} - ${doTodo.done ? 'Completed!!': 'Not Done yet!!'}`);
             });
         }
     });
+
+program .command('done <id>')
+    .description('Marks a todo as completed')
+    .action(async (id) => {
+        const todos = await readTodos();
+        const todo = todos.find(t => t.id === parseInt(id));
+
+        if (!todo) {
+            console.log(`Todo with id : ${id} does not exists`);
+            return;
+        }
+
+        todo.done = true;
+        await writeTodo(todos);
+        console.log(`Todo with id: ${id} is completed!!`);
+    })
 
 program.parse();

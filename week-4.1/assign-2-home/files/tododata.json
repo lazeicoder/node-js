@@ -2,11 +2,19 @@
   {
     "id": 1,
     "task": "go for run",
-    "timeAdded": "7/27/2025, 8:08:08 PM"
+    "timeAdded": "7/27/2025, 8:08:08 PM",
+    "done": false
   },
   {
     "id": 2,
     "task": "go for gym session",
-    "timeAdded": "7/27/2025, 8:08:28 PM"
+    "timeAdded": "7/27/2025, 8:08:28 PM",
+    "done": true
+  },
+  {
+    "id": 3,
+    "task": "go for gym session",
+    "timeAdded": "7/27/2025, 8:47:49 PM",
+    "done": false
   }
 ]
