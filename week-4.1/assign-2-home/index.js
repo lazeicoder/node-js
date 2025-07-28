@@ -62,4 +62,21 @@ program .command('done <id>')
         console.log(`Todo with id: ${id} is completed!!`);
     })
 
+
+program.command('delete <id>')
+    .description('Deletes a todo task')
+    .action(async (id) => {
+        const todos = await readTodos();
+        const noOfTodos = todos.length;
+
+        const updateTodos = todos.filter(todo => todo.id !== parseInt(id));
+
+        if (updateTodos.length === noOfTodos) {
+            console.log(`No todo found with the id ${id}`);
+        }else {
+            await writeTodo(updateTodos);
+            console.log(`Deleted todo with id ${id}`);
+        }
+    })
+
 program.parse();
