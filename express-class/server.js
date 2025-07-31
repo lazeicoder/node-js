@@ -62,11 +62,38 @@ app.post('/add-kidney', function(req, res) {
         users[i].kidneys.push({healthy: isHealthy});
     }
 
-
+    res.json({
+        msg: "Done"
+    });
 });
 
 app.put('/replace-kidney', function(req, res) {
+    const userName = req.query.userName;
+    let budget = req.query.budget;
 
+    let i = 0;
+    for(; i < users.length; i++) {
+        if(userName === users[i].name)break;
+    }
+
+    if (i === users.length) {
+        res.json({
+            msg: "User not Found!!"
+        });
+    }else {
+        for (let j = 0; j < users[i].kidneys.length; j++) {
+            if (users[i].kidneys[j].healthy === false) {
+                users[i].kidneys[j].healthy = true;
+                budget--;
+            }
+
+            if (budget === 0) break; 
+        }
+
+        res.json({
+            msg: "Update completed!!"
+        });
+    }
 });
 
 app.delete('remove-kidney', function(req, res) {
