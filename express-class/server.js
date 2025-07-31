@@ -96,8 +96,26 @@ app.put('/replace-kidney', function(req, res) {
     }
 });
 
-app.delete('remove-kidney', function(req, res) {
+app.delete('/remove-kidney', function(req, res) {
+    const userName = req.query.userName;
 
+    let i = 0;
+    for(; i < users.length; i++) {
+        if (userName === users[i].name) break;
+    }
+
+    if (i === users.length) {
+        res.json({
+            msg: "User not found!!"
+        });
+    }else {
+        const newKidneys = users[i].kidneys.filter(kidney => (kidney.healthy == true));
+        users[i].kidneys = newKidneys;
+
+        res.json({
+            msg: "Deletion Done!!"
+        });
+    }
 });
 
 app.listen(3000);
