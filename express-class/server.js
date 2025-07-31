@@ -110,11 +110,19 @@ app.delete('/remove-kidney', function(req, res) {
         });
     }else {
         const newKidneys = users[i].kidneys.filter(kidney => (kidney.healthy == true));
-        users[i].kidneys = newKidneys;
 
-        res.json({
-            msg: "Deletion Done!!"
-        });
+        if (newKidneys.length === users[i].kidneys.length) {
+            res.json({
+                msg: "No unhealthy kidneys present!!"
+            });
+        } else {
+            users[i].kidneys = newKidneys;
+
+            res.json({
+                msg: "Deletion Done!!"
+            });
+        }
+        
     }
 });
 
