@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+// a function that returns a boolean that returns that if the person is old enough to ride, where the age is taken as a query parameter.
+
 const ageChecker = (ageIs) => {
     if(ageIs >= 14) {
         return true;
