@@ -3,6 +3,11 @@ const app = express();
 
 let requestCounter = 0;
 
+app.use((req, res, next) => {
+    requestCounter = requestCounter + 1;
+    next();
+});
+
 app.get('/user', (req, res) => {
     res.status(200).json({
         name: "John"
@@ -21,5 +26,7 @@ app.get('/requestCount', (req, res) => {
     });
 });
 
+// For local server
+app.listen(3000);
 
 module.exports = app;
