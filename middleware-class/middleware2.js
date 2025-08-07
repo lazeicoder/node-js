@@ -19,7 +19,7 @@ function isOldEnoughMiddleware(req, res, next) {
 
 app.get('/ride3', function (req, res) {
     res.json({
-        msg: "You've successfully riden the third ride!!"
+        msg: "You've successfully riden the third ride!!",
     });
 });
 
