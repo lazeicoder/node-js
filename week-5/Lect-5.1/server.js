@@ -1,12 +1,7 @@
-const express = require('express');
-const app = express();
+async function fetchPost() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const json = await res.json();
+    document.getElementById("posts").innerHTML = json.title;
+}
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        msg: "Request received"
-    });
-});
-
-app.listen(3000, () => {
-    console.log(`Server is live on Port 3000!`);
-});
+fetchPost();
