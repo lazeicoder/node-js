@@ -41,3 +41,5 @@ From the above code example we can say that
 
     document.getElementById("btn").addEventListener("click", onClickCallback);
 ```
+
+- If we have multiple callback functions where each level depends on the result obtained from the previous level, the nesting becomes so deep that the code becomes difficult to read and maintain. This is called `callback hell` -> Can be solved by using `Promises` that was introduced in modern JS.
