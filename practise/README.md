@@ -9,3 +9,19 @@ setTimeout(callback, delay, param1, param2, ...)
 ```
 setInterval(callback, interval, param1, param2, ...)
 ```
+
+- `callback` is, in easy terms, a function that is passed as an argument to another function and the function that accepts a function or returns a function is known as `higher order function`.
+
+```
+const greetPerson = (nameIs) => {
+    console.log(`Hello there, ${nameIs}`);
+}
+
+const greetName = (greetCallback) => {
+    const nameIs = `Sursadhu`;
+    console.log(`Calling name : ${nameIs}`);
+    greetCallback(nameIs);
+}
+
+greetName(greetPerson);
+```
