@@ -42,4 +42,22 @@ From the above code example we can say that
     document.getElementById("btn").addEventListener("click", onClickCallback);
 ```
 
+- A very good real world use case of the `Asynchronous Callback` is the `fs module` of node. A certain example is:
+
+```
+const fs = require("fs");
+
+console.log("Reading file...");
+
+fs.readFile("example.txt", "utf8", (err, data) => {
+  if (err) {
+    console.error("Error reading file:", err);
+    return;
+  }
+  console.log("File contents:", data);
+});
+
+console.log("Doing other work while file is being read...");
+```
+
 - If we have multiple callback functions where each level depends on the result obtained from the previous level, the nesting becomes so deep that the code becomes difficult to read and maintain. This is called `callback hell` -> Can be solved by using `Promises` that was introduced in modern JS.
