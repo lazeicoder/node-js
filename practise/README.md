@@ -27,3 +27,8 @@ const greetName = (greetCallback) => {
 
 greetName(greetPerson);
 ```
+From the above code example we can say that 
+`greetName()` function is an `higher order function` and `greetPerson()` function is the `callback function`. 
+
+- A callback can be divided as `Synchronous` and `Asynchronous` callbacks. 
+    - In our previous example, we have looked into synchronous callback, as it is executed immediately.
