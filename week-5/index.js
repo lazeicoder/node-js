@@ -40,9 +40,10 @@ const progressTimer = setInterval(() => {
     timer++;
 
     if (timer === 30) {
+        console.log('-----------------');
         console.log(`Pizza is ready bitchh!!`);
     } else if (timer === 31) {
         clearInterval(progressTimer);
-        console.log(`Your order has been delivered!!`);
+        console.log(`Your order has been delivered!! Enjoy your order.`);
     }
 }, 1000);
