@@ -18,14 +18,23 @@
 
 // Example-2
 
-const greetPerson = (nameIs) => {
-    console.log(`Hello there, ${nameIs}`);
+// const greetPerson = (nameIs) => {
+//     console.log(`Hello there, ${nameIs}`);
+// }
+
+// const greetName = (greetCallback) => {
+//     const nameIs = `Sursadhu`;
+//     console.log(`Calling name : ${nameIs}`);
+//     greetCallback(nameIs);
+// }
+
+// greetName(greetPerson);
+
+// Asynchronous callbacks
+
+const greetUser = (userName) => {
+    console.log(`Welcome back user : ${userName}`);
 }
 
-const greetName = (greetCallback) => {
-    const nameIs = `Sursadhu`;
-    console.log(`Calling name : ${nameIs}`);
-    greetCallback(nameIs);
-}
-
-greetName(greetPerson);
+setTimeout(greetUser, 3000, 'Vamesh');
+console.log(`First print into the console!`);

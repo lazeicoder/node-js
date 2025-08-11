@@ -32,4 +32,12 @@ From the above code example we can say that
 
 - A callback can be divided as `Synchronous` and `Asynchronous` callbacks. 
     - In our previous example, we have looked into synchronous callback, as it is executed immediately.
-    - In case of an `Asynchronous callback function`, the function is called `only after an asynchronous operation finishes` -> that means it runs in the future and not immediately.  
+    - In case of an `Asynchronous callback function`, the function is called `only after an asynchronous operation finishes` -> that means it runs in the future and not immediately.
+
+    ```
+    function onClickCallback() {
+        document.getElementById("demo").innerHTML = `Hello There!! Happy coding!!!`;
+    }  
+
+    document.getElementById("btn").addEventListener("click", onClickCallback);
+    ```
